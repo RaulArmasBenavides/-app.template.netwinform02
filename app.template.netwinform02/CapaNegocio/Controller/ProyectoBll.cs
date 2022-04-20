@@ -1,42 +1,31 @@
-﻿using app.template.netwinform02.Model;
+﻿using CapaDatos.Entity;
+using CapaDatos.Model;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace app.template.netwinform02.Controller
+namespace CapaNegocio.Controller
 {
-    public class ProductoBll
+   public class ProyectoBll
     {
+
         //variable de la clase ProductoDao
-        ProductoDao dao;
+        ProyectoDAO dao;
         //constructor
-        public ProductoBll()
+        public ProyectoBll()
         {
-            dao = new ProductoDao();
+            dao = new ProyectoDAO();
         }
 
         //metodos de negocio
-        public DataTable ProductoListar()
+        public DataTable ProyectoListar()
         {
             try
             {
-                return dao.listaProductos();
-            }
-            catch (Exception ex)
-            {
-                throw ex ;
-            }
-        }
-
-        public DataTable ProductoListar(string nombre)
-        {
-            try
-            {
-                return dao.listaProductos(nombre);
+                return dao.listaProyectos();
             }
             catch (Exception ex)
             {
@@ -44,28 +33,45 @@ namespace app.template.netwinform02.Controller
             }
         }
 
-        public DataTable ProductoListar(int id)
+        public void ProyectoAdicionar(Proyecto reg)
         {
             try
             {
-                return dao.listaProductos(id);
+                dao.create(reg);
             }
-            catch (SqlException ex)
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void ProyectoActualizar(Proyecto reg)
+        {
+            try
+            {
+                dao.update(reg);
+            }
+            catch (Exception ex)
             {
                 throw ex;
             }
         }
 
-        public DataTable CategoriaListar()
+        public void ProyectoEliminar(Proyecto reg)
         {
             try
             {
-                return dao.listaCategorias();
+                dao.delete(reg);
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
+        }
+
+
+        public Proyecto ProyectoBuscar(object p)
+        {
+            return dao.findForId(p);
         }
 
     }

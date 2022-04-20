@@ -1,11 +1,12 @@
-﻿using app.template.netwinform02.View;
+﻿using CapaUI.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace app.template.netwinform02
+namespace CapaUI
 {
     static class Program
     {
@@ -21,3 +22,4 @@ namespace app.template.netwinform02
         }
     }
 }
+

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace app.template.netwinform02.View
+namespace CapaUI.View
 {
     public partial class MDImenu : Form
     {
@@ -19,28 +19,44 @@ namespace app.template.netwinform02.View
 
         private void productosTodoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProductosTodo f = new frmProductosTodo();
-            f.MdiParent = this;
-            f.Show();
+       
         }
 
         private void productosPorNombreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProductosxNombre f = new frmProductosxNombre();
-            f.MdiParent = this;
-            f.Show();
+   
         }
 
         private void productosPorCategoriaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProductosxCategoria f = new frmProductosxCategoria();
-            f.MdiParent = this;
-            f.Show();
+        
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void MDImenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void consultasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void proyectosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProyectoView f = new ProyectoView();
+            f.MdiParent = this;
+            f.Show();
         }
     }
 }

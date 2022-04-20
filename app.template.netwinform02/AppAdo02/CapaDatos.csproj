@@ -5,10 +5,10 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D2231E0D-1F63-425E-8996-307C03D223F8}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>app.template.netwinform02</RootNamespace>
-    <AssemblyName>app.template.netwinform02</AssemblyName>
+    <RootNamespace>CapaDatos</RootNamespace>
+    <AssemblyName>CapaDatos</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
@@ -47,39 +50,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\ProductoBll.cs" />
-    <Compile Include="Controller\ProyectoBll.cs" />
     <Compile Include="Database\AccesoDB.cs" />
+    <Compile Include="Entity\EmpleadoTO.cs" />
+    <Compile Include="Interfaz\ICrudDao.cs" />
+    <Compile Include="Model\EmpleadoDAO.cs" />
     <Compile Include="Entity\Proyecto.cs" />
-    <Compile Include="Model\ProductoDao.cs" />
     <Compile Include="Model\ProyectoDAO.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Util\Helper.cs" />
-    <Compile Include="View\frmProductosTodo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frmProductosTodo.Designer.cs">
-      <DependentUpon>frmProductosTodo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\frmProductosxCategoria.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frmProductosxCategoria.Designer.cs">
-      <DependentUpon>frmProductosxCategoria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\frmProductosxNombre.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\frmProductosxNombre.Designer.cs">
-      <DependentUpon>frmProductosxNombre.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\MDImenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\MDImenu.Designer.cs">
-      <DependentUpon>MDImenu.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -90,18 +68,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View\frmProductosTodo.resx">
-      <DependentUpon>frmProductosTodo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\frmProductosxCategoria.resx">
-      <DependentUpon>frmProductosxCategoria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\frmProductosxNombre.resx">
-      <DependentUpon>frmProductosxNombre.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\MDImenu.resx">
-      <DependentUpon>MDImenu.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

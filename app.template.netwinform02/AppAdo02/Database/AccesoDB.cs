@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 
-namespace app.template.netwinform02.Database
+namespace CapaDatos.Database
 {
     public class AccesoDB
     {

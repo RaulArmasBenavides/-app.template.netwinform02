@@ -1,5 +1,5 @@
-﻿using app.template.netwinform02.Database;
-using app.template.netwinform02.Entity;
+﻿using CapaDatos.Database;
+using CapaDatos.Entity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace app.template.netwinform02.Model
+namespace CapaDatos.Model
 {
     public class ProyectoDAO
     {
@@ -18,16 +18,14 @@ namespace app.template.netwinform02.Model
         {
             using (var cn = AccesoDB.getConnection())
             {
-                int IdProducto = -1;
-                SqlCommand cmd = new SqlCommand("usp_Producto_Adicionar", cn);
+                SqlCommand cmd = new SqlCommand("usp_Proyecto_Adicionar", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idProyecto", reg.idProyecto);
-                cmd.Parameters.AddWithValue("@Monto", reg.monto);
-                cmd.Parameters.AddWithValue("@Fecha", reg.fecha);
-                SqlParameter par = cmd.Parameters.Add("@IdProducto", SqlDbType.Int);
-                par.Direction = ParameterDirection.Output;
-                int n = cmd.ExecuteNonQuery();
-                if (n > 0) IdProducto = (int)par.Value;
+                cmd.Parameters.AddWithValue("@monto", reg.monto);
+                 cmd.Parameters.Add("@IdProyecto", SqlDbType.Int).Direction = ParameterDirection.Output;
+                //ejecutar sp
+                cn.Open();
+                cmd.ExecuteNonQuery();
+                reg.idProyecto = (int)cmd.Parameters["@IdProyecto"].Value;
             }
         }//end
 
@@ -61,7 +59,7 @@ namespace app.template.netwinform02.Model
             DataTable dt;
             using (var cn = AccesoDB.getConnection())
             {
-                SqlDataAdapter dap = new SqlDataAdapter("usp_Proyecto_Listar", cn);
+                SqlDataAdapter dap = new SqlDataAdapter("usp_Proyectos_Listar", cn);
                 dap.SelectCommand.CommandType = CommandType.StoredProcedure;
                 dt = new DataTable();
                 dap.Fill(dt);
@@ -69,9 +67,44 @@ namespace app.template.netwinform02.Model
             return dt;
         }
 
+        public Proyecto findForId(object t)
+        {
+            Proyecto pro = null;
+            try
+            {
+                using (var cn = AccesoDB.getConnection())
+                {
+                    SqlCommand cmd = new SqlCommand("usp_Producto_Datos", cn);
+                    SqlDataReader dr;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdProducto", Convert.ToInt32(t));
+                    cn.Open();
+                    dr = cmd.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        pro = new Proyecto()
+                        {
+                            //IdProducto = Convert.ToInt32(dr[0]),
+                            //NombreProducto = dr[1].ToString(),
+                            //IdProveedor = Convert.ToInt32(dr[2]),
+                            //IdCategoria = Convert.ToInt32(dr[3]),
+                            //Precio = Convert.ToDecimal(dr[4]),
+                            //Stock = Convert.ToInt32(dr[5]),
+                        };
+                    }
+                    dr.Close();
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            return pro;
+        }
 
 
-       
+
+
 
     }
 }

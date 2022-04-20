@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace app.template.netwinform02.Entity
+namespace CapaDatos.Entity
 {
     public class Proyecto
     {

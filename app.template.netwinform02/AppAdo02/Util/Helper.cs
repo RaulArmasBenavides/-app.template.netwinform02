@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace app.template.netwinform02.Util
+namespace CapaDatos.Util
 {
     public class Helper
     {
