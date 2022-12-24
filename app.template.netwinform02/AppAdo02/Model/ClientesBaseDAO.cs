@@ -128,60 +128,61 @@ namespace CapaDatos.Model
         {
             StringBuilder sSQL = new StringBuilder();
 
-            sSQL.Append("INSERT INTO detalord(");
-            sSQL.Append("empresa");
-            sSQL.Append(", folio");
-            sSQL.Append(", fecha");
-            sSQL.Append(", sec_desc");
-            sSQL.Append(", grupo");
-            sSQL.Append(", folio_art");
-            sSQL.Append(", cantidad");
-            sSQL.Append(", precio");
-            sSQL.Append(", estado");
-            sSQL.Append(", origen");
-            sSQL.Append(", fecha_entrega");
-            sSQL.Append(", ultima_mod");
-            sSQL.Append(", folio_cotiz");
-            sSQL.Append(", folio_pedido");
-            sSQL.Append(", cantidad_fin");
-            sSQL.Append(", cant_anulada");
-            sSQL.Append(", cant_recibida");
-            sSQL.Append(", marca");
-            sSQL.Append(", precio_orig");
-            sSQL.Append(", marca_ing");
-            sSQL.Append(", precio_costeo");
-            sSQL.Append(", fecha_requerida");
-            sSQL.Append(", fecha_entrega_mod");
-            sSQL.Append(", folio_ent_cus");
-            sSQL.Append(", flag_msg_seguim");
-            sSQL.Append(") VALUES(");
-            sSQL.Append((this.empresaColumn.DefaultValue == DBNull.Value) ? " NULL" : "'" + this.empresaColumn.DefaultValue + "'");
-            sSQL.Append((this.folioColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.folioColumn.DefaultValue + "'");
-            sSQL.Append((this.fechaColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.fechaColumn.DefaultValue + "'");
-            sSQL.Append((this.sec_descColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.sec_descColumn.DefaultValue + "");
-            sSQL.Append((this.grupoColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.grupoColumn.DefaultValue + "'");
-            sSQL.Append((this.folio_artColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.folio_artColumn.DefaultValue + "'");
-            sSQL.Append((this.cantidadColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.cantidadColumn.DefaultValue + "");
-            sSQL.Append((this.precioColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.precioColumn.DefaultValue + "");
-            sSQL.Append((this.estadoColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.estadoColumn.DefaultValue + "'");
-            sSQL.Append((this.origenColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.origenColumn.DefaultValue + "'");
-            sSQL.Append((this.fecha_entregaColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.fecha_entregaColumn.DefaultValue + "'");
-            sSQL.Append(",current");
-            sSQL.Append((this.folio_cotizColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.folio_cotizColumn.DefaultValue + "'");
-            sSQL.Append((this.folio_pedidoColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.folio_pedidoColumn.DefaultValue + "'");
-            sSQL.Append((this.cantidadColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.cantidadColumn.DefaultValue + "");
-            sSQL.Append((this.cant_anuladaColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.cant_anuladaColumn.DefaultValue + "");
-            sSQL.Append((this.cant_recibidaColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.cant_recibidaColumn.DefaultValue + "");
-            sSQL.Append((this.marcaColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.marcaColumn.DefaultValue + "'");
-            sSQL.Append((this.precioColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.precioColumn.DefaultValue + "");
-            sSQL.Append((this.marca_ingColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.marca_ingColumn.DefaultValue + "'");
-            sSQL.Append((this.precio_costeoColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.precio_costeoColumn.DefaultValue + "");
-            sSQL.Append((this.fecha_requeridaColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.fecha_requeridaColumn.DefaultValue + "'");
-            sSQL.Append((this.fecha_entrega_modColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.fecha_entrega_modColumn.DefaultValue + "'");
-            sSQL.Append((this.folio_ent_cusColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.folio_ent_cusColumn.DefaultValue + "'");
-            sSQL.Append((this.flag_msg_seguimColumn.DefaultValue == DBNull.Value) ? ", 'N'" : ",'" + this.flag_msg_seguimColumn.DefaultValue + "'");
-            sSQL.Append(")");
-            return this._informixHelper.ExecuteNonQuery(CommandType.Text, sSQL.ToString());
+            //sSQL.Append("INSERT INTO detalord(");
+            //sSQL.Append("empresa");
+            //sSQL.Append(", folio");
+            //sSQL.Append(", fecha");
+            //sSQL.Append(", sec_desc");
+            //sSQL.Append(", grupo");
+            //sSQL.Append(", folio_art");
+            //sSQL.Append(", cantidad");
+            //sSQL.Append(", precio");
+            //sSQL.Append(", estado");
+            //sSQL.Append(", origen");
+            //sSQL.Append(", fecha_entrega");
+            //sSQL.Append(", ultima_mod");
+            //sSQL.Append(", folio_cotiz");
+            //sSQL.Append(", folio_pedido");
+            //sSQL.Append(", cantidad_fin");
+            //sSQL.Append(", cant_anulada");
+            //sSQL.Append(", cant_recibida");
+            //sSQL.Append(", marca");
+            //sSQL.Append(", precio_orig");
+            //sSQL.Append(", marca_ing");
+            //sSQL.Append(", precio_costeo");
+            //sSQL.Append(", fecha_requerida");
+            //sSQL.Append(", fecha_entrega_mod");
+            //sSQL.Append(", folio_ent_cus");
+            //sSQL.Append(", flag_msg_seguim");
+            //sSQL.Append(") VALUES(");
+            //sSQL.Append((this.empresaColumn.DefaultValue == DBNull.Value) ? " NULL" : "'" + this.empresaColumn.DefaultValue + "'");
+            //sSQL.Append((this.folioColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.folioColumn.DefaultValue + "'");
+            //sSQL.Append((this.fechaColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.fechaColumn.DefaultValue + "'");
+            //sSQL.Append((this.sec_descColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.sec_descColumn.DefaultValue + "");
+            //sSQL.Append((this.grupoColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.grupoColumn.DefaultValue + "'");
+            //sSQL.Append((this.folio_artColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.folio_artColumn.DefaultValue + "'");
+            //sSQL.Append((this.cantidadColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.cantidadColumn.DefaultValue + "");
+            //sSQL.Append((this.precioColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.precioColumn.DefaultValue + "");
+            //sSQL.Append((this.estadoColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.estadoColumn.DefaultValue + "'");
+            //sSQL.Append((this.origenColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.origenColumn.DefaultValue + "'");
+            //sSQL.Append((this.fecha_entregaColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.fecha_entregaColumn.DefaultValue + "'");
+            //sSQL.Append(",current");
+            //sSQL.Append((this.folio_cotizColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.folio_cotizColumn.DefaultValue + "'");
+            //sSQL.Append((this.folio_pedidoColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.folio_pedidoColumn.DefaultValue + "'");
+            //sSQL.Append((this.cantidadColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.cantidadColumn.DefaultValue + "");
+            //sSQL.Append((this.cant_anuladaColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.cant_anuladaColumn.DefaultValue + "");
+            //sSQL.Append((this.cant_recibidaColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.cant_recibidaColumn.DefaultValue + "");
+            //sSQL.Append((this.marcaColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.marcaColumn.DefaultValue + "'");
+            //sSQL.Append((this.precioColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.precioColumn.DefaultValue + "");
+            //sSQL.Append((this.marca_ingColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.marca_ingColumn.DefaultValue + "'");
+            //sSQL.Append((this.precio_costeoColumn.DefaultValue == DBNull.Value) ? ", NULL" : "," + this.precio_costeoColumn.DefaultValue + "");
+            //sSQL.Append((this.fecha_requeridaColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.fecha_requeridaColumn.DefaultValue + "'");
+            //sSQL.Append((this.fecha_entrega_modColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.fecha_entrega_modColumn.DefaultValue + "'");
+            //sSQL.Append((this.folio_ent_cusColumn.DefaultValue == DBNull.Value) ? ", NULL" : ",'" + this.folio_ent_cusColumn.DefaultValue + "'");
+            //sSQL.Append((this.flag_msg_seguimColumn.DefaultValue == DBNull.Value) ? ", 'N'" : ",'" + this.flag_msg_seguimColumn.DefaultValue + "'");
+            //sSQL.Append(")");
+            //return this._informixHelper.ExecuteNonQuery(CommandType.Text, sSQL.ToString());
+            return 0;
         }
 
         /// <summary>
@@ -191,11 +192,11 @@ namespace CapaDatos.Model
         /// <returns>un entero con el numero de registros afectados</returns>
         public int Eliminar()
         {
-            StringBuilder sSQL = new StringBuilder();
-            sSQL.Append("delete from detalord where folio = '" + this.folioColumn.DefaultValue + "'");
-            sSQL.Append(" and empresa = '" + this.empresaColumn.DefaultValue + "'");
-
-            return this._informixHelper.ExecuteNonQuery(CommandType.Text, sSQL.ToString());
+            //StringBuilder sSQL = new StringBuilder();
+            //sSQL.Append("delete from detalord where folio = '" + this.folioColumn.DefaultValue + "'");
+            //sSQL.Append(" and empresa = '" + this.empresaColumn.DefaultValue + "'");
+            return 0;
+            //return this._informixHelper.ExecuteNonQuery(CommandType.Text, sSQL.ToString());
         }
     }
 }
