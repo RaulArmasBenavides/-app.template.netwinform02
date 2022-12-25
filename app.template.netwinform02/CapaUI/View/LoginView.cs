@@ -10,7 +10,6 @@ namespace CapaUI.View
         {
             InitializeComponent();
         }
-        //instanciar objeto de la clase EmpleadoBLL
         EmpleadoBLL obj = new EmpleadoBLL();
 
         private void btnAceptar_Click(object sender, EventArgs e)
